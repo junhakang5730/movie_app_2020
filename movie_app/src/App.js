@@ -1,7 +1,6 @@
 import React from "react"
 import axios from "axios"
 import Movie from "./Movie"
-import { render } from "sass"
 
 
 // class App extends React.Component{
@@ -46,7 +45,9 @@ class App extends React.Component{
 
   getMovies = async () => {
     const movies = await axios.get("https://yts-proxy.now.sh/list_movies.json?sort_by=rating")
-    console.log(movies.data.data.movies)
+    console.log(movies.data.data.movies[2].title)
+    this.setState(this.state.movies = movies.data.data.movies)
+    // console.log(this.state.movies[2].title)
   }
 
   componentDidMount() {
@@ -55,7 +56,14 @@ class App extends React.Component{
 
 
   render(){
-    return <div></div>
+    const Movies = this.state.movies
+    
+    return <div>
+      {Movies.map( movie => {
+        console.log(movie.id)
+      return <Movie title={movie.title}/>
+    })}
+    </div>
   }
 }
 
