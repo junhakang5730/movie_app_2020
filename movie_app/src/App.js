@@ -45,7 +45,7 @@ class App extends React.Component{
 
   getMovies = async () => {
     const movies = await axios.get("https://yts-proxy.now.sh/list_movies.json?sort_by=rating")
-    console.log(movies.data.data.movies[2].title)
+    console.log(movies.data.data.movies[2])
     this.setState(this.state.movies = movies.data.data.movies)
     // console.log(this.state.movies[2].title)
   }
@@ -60,8 +60,8 @@ class App extends React.Component{
     
     return <div>
       {Movies.map( movie => {
-        console.log(movie.id)
-      return <Movie title={movie.title}/>
+        
+      return <Movie title={movie.title} key={movie.id} poster={movie.large_cover_image} year={movie.year} />
     })}
     </div>
   }

@@ -1,0 +1,22 @@
+body {
+    background-color: dimgray;
+    margin: 100px;
+}
+
+div {
+    /* background-color: firebrick; */
+    
+}
+
+img {
+    width: 320px;
+    border-radius: 20px;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 40px;
+    margin-bottom: 150px;
+    width: 320;
+    box-shadow: 10px 5px 5px #000000;
+}
